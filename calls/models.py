@@ -21,7 +21,7 @@ class Service(models.Model):
 
 
 """ ATENDIMENTO """
-class Order(models.Model):
+class Call(models.Model):
   STATUS_CHOICES = (
     ('Pendente', 'Pendente'),
     ('Realizado', 'Realizado'),
@@ -34,7 +34,7 @@ class Order(models.Model):
     ('PIX', 'PIX')
   )
 
-  client = models.ForeignKey(Client, on_delete=models.SET_NULL, related_name='order_client', null=True)
+  client = models.ForeignKey(Client, on_delete=models.DO_NOTHING, related_name='order_client')
   services = models.ManyToManyField(Service)
 
   status = models.CharField(max_length=10, choices=STATUS_CHOICES, null=False, default='Pendente', auto_created='Pendente')
