@@ -9,29 +9,6 @@
 
 }
 
-.text-card{
-
-  font-size: 25px;
-
-}
-
-.btn-add-carros{
-
-  background-color: var(--contrast-color);
-  padding: 5px;
-  font-weight: bold;
-  cursor: pointer;
-
-}
-
-.btn-principal{
-  color:white;
-  border: none;
-  background-color: var(--dark-color);
-  padding: 5px;
-  font-size: 30px;
-}
-
 .card-client {
   width: 100%;
   background-color: var(--main-color);

@@ -30,7 +30,7 @@
             <span class="tooltip">Página inicial</span>
           </li>
           <li>
-          <a href="#">
+          <a href="{% url 'clients-list' %}">
             <i class='bx bx-user' ></i>
             <span class="links_name">Clientes</span>
           </a>
@@ -43,27 +43,12 @@
           </a>
           <span class="tooltip">Serviços</span>
         </li>
-        <li>
-          <a href="#">
-            <i class='bx bx-folder' ></i>
-            <span class="links_name">Agenda</span>
-          </a>
-          <span class="tooltip">Agenda</span>
-        </li>
-        <li>
-          <a href="#">
-            <i class='bx bx-cog' ></i>
-            <span class="links_name">Histórico</span>
-          </a>
-          <span class="tooltip">Histórico</span>
-        </li>
         </ul>
       </div>
       
       <section class="home-section">
           {% block 'dashboard'%}
           {% endblock %}
-
       </section>
 
     {% block 'body' %}
