@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% load static %} {% block 'head' %}
+<link rel="stylesheet" href="{% static 'clients/css/client.css' %}" />
+{% endblock %} {% block 'dashboard' %}
+<div class="container">
+  <div id="adicionar-cliente" class="adicionar-cliente">
+    <form method="POST">
+      {% csrf_token %}
+      <div class="row">
+        <div class="col-md">
+          <p>Nome Completo: </p>
+          <input type="text" class="form-control" placeholder="Nome completo" name="{{ form.name.name }}">
+          {% if form.name.errors %}
+            <div class="error">{{ form.name.errors }}</div>
+          {% endif %}
+        </div>
+      </div>
+      <br>
+      <p>Endereço: </p>
+      <input type="text" class="form-control" placeholder="Endereço do cliente" name="{{form.address.name}}">
+      {% if form.address.errors %}
+        <div class="error">{{ form.address.errors }}</div>
+      {% endif %}
+      <br>
+      <p>Telefone: </p>
+      <input type="text" class="form-control" placeholder="() 99999-9999" name="{{ form.phone.name }}">
+      {% if form.phone.errors %}
+        <div class="error">{{ form.phone.errors }}</div>
+      {% endif %}
+      <hr style="background-color:gray;">
+
+      </div>
+
+      <br>
+      <input type="submit" value="Cadastrar" class="btn-principal">
+
+    </form>
+
+  </div>
+
+</div>
+<script src="{% static 'clientes/js/clientes.js' %}"></script>
+{% endblock%}
