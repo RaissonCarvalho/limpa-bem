@@ -1,0 +1,77 @@
+.card-dashboard{
+
+  background-color: var(--main-color);
+  width: 50%;
+  margin-left: 10px;
+  margin-top: 40px;
+  text-align: center;
+  padding: 20px;
+
+}
+
+.card-call-success {
+  width: 100%;
+  background-color: #1D8103;
+  padding: 20px;
+  margin-bottom: 24px;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.card-call-success p{
+  margin: 0;
+  padding-bottom: 8px;
+}
+
+.card-call-pending {
+  width: 100%;
+  background-color: #B6AB07;
+  padding: 20px;
+  margin-bottom: 24px;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.card-call-pending p{
+  margin: 0;
+  padding-bottom: 8px;
+}
+
+.card-call-pending a{
+  background-color: #016F17;
+  display: flex;
+  width: 250px;
+  height: 45px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  text-decoration: none;
+  border-radius: 10px;
+  color: #000;
+  transition: 0.2s;
+}
+
+.card-call-pending button {
+  border: 0;
+  background: none;
+  color: #fff
+}
+
+.card-call-canceled {
+  width: 100%;
+  background-color: #C22400;
+  padding: 20px;
+  margin-bottom: 24px;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.card-call-canceled p{
+  margin: 0;
+  padding-bottom: 8px;
+}
+
+
+.container-calls {
+  padding-bottom: 50px;
+}

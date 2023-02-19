@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'calls/css/call.css' %}">
+{% endblock %}
+
+{% block 'dashboard' %}
+<div class="container">
+    <div class="container-calls">
+        <h1>Atendimentos</h1>
+        
+        {% for call in calls %}
+            {% if call.status == 'Pendente' %}
+                <div class="card-call-pending">
+                    <p><strong>{{ call }}</strong></p>
+                    <p><strong>Cliente: </strong> {{ call.client }}</p>
+                    <div>
+                        <strong>Descrição: </strong>
+                        {% for service in call.services.all %}
+                            <p>{{ service.description }}</p>
+                        {% endfor %}
+                    </div>
+                    <p><strong>Valor Total: </strong>R${{ call.get_total_value }}</p>
+                    <p><strong>Status: </strong>{{ call.status }}</p>
+                    <p><strong>Tipo de pagamento: </strong>{{ call.payment }}</p>
+                    {% if call.status == 'Pendente' %}
+                        <a><button>Concluir atendimento</button></a>
+                        <button>Cancelar atendimento</button>
+                    {% endif %}
+                </div>
+            {% elif call.status == 'Realizado' %}
+                <div class="card-call-success">
+                    <p><strong>{{ call }}</strong></p>
+                    <p><strong>Cliente: </strong> {{ call.client }}</p>
+                    <div>
+                        <strong>Descrição: </strong>
+                        {% for service in call.services.all %}
+                            <p>{{ service.description }}</p>
+                        {% endfor %}
+                    </div>
+                    <p><strong>Valor Total: </strong>R${{ call.get_total_value }}</p>
+                    <p><strong>Status: </strong>{{ call.status }}</p>
+                    <p><strong>Tipo de pagamento: </strong>{{ call.payment }}</p>
+                    
+                </div>
+            {% elif call.status == 'Cancelado' %}
+                <div class="card-call-canceled">
+                    <p><strong>{{ call }}</strong></p>
+                    <p><strong>Cliente: </strong> {{ call.client }}</p>
+                    <div>
+                        <strong>Descrição: </strong>
+                        {% for service in call.services.all %}
+                            <p>{{ service.description }}</p>
+                        {% endfor %}
+                    </div>
+                    <p><strong>Valor Total: </strong>R${{ call.get_total_value }}</p>
+                    <p><strong>Status: </strong>{{ call.status }}</p>
+                    <p><strong>Tipo de pagamento: </strong>{{ call.payment }}</p>
+                    
+                </div>
+            {% endif %}
+        {% endfor %}
+        
+    </div>
+
+</div>
+{% endblock%}

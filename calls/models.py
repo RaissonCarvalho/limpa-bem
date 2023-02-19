@@ -35,10 +35,23 @@ class Call(models.Model):
   )
 
   client = models.ForeignKey(Client, on_delete=models.DO_NOTHING, related_name='order_client')
-  services = models.ManyToManyField(Service)
+  services = models.ManyToManyField(Service, related_name='services')
 
   status = models.CharField(max_length=10, choices=STATUS_CHOICES, null=False, default='Pendente', auto_created='Pendente')
   payment = models.CharField(max_length=20, choices=PAYMENT_CHOICES) 
 
   service_date = models.DateTimeField(null=False, blank=False)
   order_registration_date = models.DateTimeField(auto_now_add=True, null=False)
+
+
+  def __str__(self) -> str:
+
+    return "Atendimento Nº " + str(self.id)
+
+  def get_total_value(self):
+    total_value = 0
+    for service in self.services.all():
+      total_value += service.value
+
+    return total_value
+    
