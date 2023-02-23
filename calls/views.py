@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, FormView
+from django.views.generic import TemplateView, FormView, DetailView
 from .models import Client, Service, Call
 from .forms import ClientForm
 from django.urls import reverse_lazy
@@ -42,5 +42,17 @@ class CallsTemplateView(TemplateView):
   def get_context_data(self, **kwargs):
     context = super(CallsTemplateView, self).get_context_data(**kwargs)
     context['calls'] = Call.objects.all()
+
+    return context
+
+
+class CallDetailView(DetailView):
+  template_name = 'calls/call_details.html'
+
+  model = Call
+  context_object_name = 'call'
+
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
 
     return context

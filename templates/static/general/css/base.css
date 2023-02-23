@@ -188,28 +188,34 @@
   width: 50px;
   background: none;
 }
+
 .home-section{
   position: relative;
   min-height: 100vh;
   top: 0;
   background: #2A2A2A;
   left: 78px;
-  color: white;
   width: calc(100% - 78px);
   transition: all 0.5s ease;
   z-index: 2;
 }
+
+.home-section h1 {
+  color: #fff;
+}
+
 .sidebar.open ~ .home-section{
   left: 250px;
   width: calc(100% - 250px);
 }
 .home-section .text{
   display: inline-block;
-  color: var(--main-color);
+  
   font-size: 25px;
   font-weight: 500;
   margin: 18px
 }
+
 @media (max-width: 420px) {
   .sidebar li .tooltip{
     display: none;

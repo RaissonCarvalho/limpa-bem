@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block 'head' %}
+  <link rel="stylesheet" href="{% static 'calls/css/call.css' %}">
+{% endblock %}
+
+{% block 'dashboard' %}
+  <div class="container">
+    <div class="container-calls">
+      <h1>{{ call }}</h1>
+      {% if call.status == 'Pendente' %}
+        <div class="card-call-pending">
+          
+          <p><strong>Cliente: </strong> {{ call.client }}</p>
+          <p><strong>Endereço: </strong>{{ call.client.address }}</p>
+          <p><strong>Valor total do serviço: </strong>{{ call.get_total_value }}</p>
+          <p><strong>Tipo de pagamento: </strong>{{ call.payment }}</p>
+          <p><strong>Data da realização do serviço: </strong>{{ call.service_date }}</p>
+          </br>
+          <p><strong>Registrado em: </strong>{{ call.order_registration_date }}</p>
+          <p><strong>Status: </strong>{{ call.status }}</p>
+
+          </br>
+          </br>
+          <a>Concluir atendimento</a>
+          <a>Cancelar atendimento</a>
+          
+        </div>
+        {% elif call.status == 'Realizado' %}
+        <div class="card-call-success">
+          
+          <p><strong>Cliente: </strong> {{ call.client }}</p>
+          <p><strong>Endereço: </strong>{{ call.client.address }}</p>
+          <p><strong>Valor total do serviço: </strong>{{ call.get_total_value }}</p>
+          <p><strong>Tipo de pagamento: </strong>{{ call.payment }}</p>
+          <p><strong>Registrado em: </strong>{{ call.order_registration_date }}</p>
+          <p><strong>Data da realização do serviço: </strong>{{ call.service_date }}</p>
+          <p><strong>Status: </strong>{{ call.status }}</p>
+
+        </div>
+        {% elif call.status == 'Cancelado' %}
+        <div class="card-call-canceled">
+          
+          <p><strong>Cliente: </strong> {{ call.client }}</p>
+          <p><strong>Endereço: </strong>{{ call.client.address }}</p>
+          <p><strong>Valor total do serviço: </strong>{{ call.get_total_value }}</p>
+          <p><strong>Tipo de pagamento: </strong>{{ call.payment }}</p>
+          <p><strong>Registrado em: </strong>{{ call.order_registration_date }}</p>
+          <p><strong>Data da realização do serviço: </strong>{{ call.service_date }}</p>
+          <p><strong>Status: </strong>{{ call.status }}</p>
+
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+{% endblock%}
